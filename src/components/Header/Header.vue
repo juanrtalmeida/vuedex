@@ -3,27 +3,31 @@
     <Transition mode="out-in">
       <ul v-if="active" class="listContainer">
         <div class="listItems">
-          <HeaderItem item="Home" />
-          <HeaderItem item="Map" />
-          <HeaderItem item="Pokedex" />
+          <HeaderItem v-once @click="() => router.push('/home')" item="Home" />
+          <HeaderItem v-once item="Map" />
+          <HeaderItem
+            v-once
+            @click="() => router.push('/pokedex')"
+            item="Pokedex"
+          />
         </div>
         <img
           class="logo"
           @click="activeMenu"
-          src="../assets/logo-removebg-preview.png"
+          src="../../assets/logo-removebg-preview.png"
           alt="Poke app made by yukito"
           title="Poke app made by yukito"
         />
         <div class="listItems">
-          <HeaderItem item="Search" />
-          <HeaderItem item="Login" />
+          <HeaderItem v-once item="Search" />
+          <HeaderItem v-once item="Login" />
           <ModeToggle />
         </div>
       </ul>
       <div v-else class="headerWrapperDouble">
         <img
           class="logo"
-          src="../assets/logo-removebg-preview.png"
+          src="../../assets/logo-removebg-preview.png"
           alt="Poke app made by yukito"
           title="Poke app made by yukito"
         />
@@ -35,8 +39,10 @@
 
 <script setup lang="ts">
 import { ref } from "@vue/reactivity";
-import { MenuIcon, HeaderItem, ModeToggle } from "./";
+import { useRoute, useRouter } from "vue-router";
+import { MenuIcon, HeaderItem, ModeToggle } from "..";
 const active = ref(false);
+const router = useRouter();
 
 function activeMenu() {
   active.value = !active.value;

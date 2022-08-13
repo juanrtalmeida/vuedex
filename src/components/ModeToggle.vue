@@ -1,7 +1,12 @@
 <template>
   <label class="switch">
-    <input v-if="selectedTheme" type="checkbox" @click="selectTheme" checked />
-    <input v-else type="checkbox" @click="selectTheme" />
+    <input
+      v-if="selectedTheme"
+      type="checkbox"
+      @click="selectTheme(false)"
+      checked
+    />
+    <input v-else type="checkbox" @click="selectTheme(true)" />
     <span class="slider"></span>
   </label>
 </template>
@@ -10,6 +15,7 @@
 import { useColorMode } from "../hooks/useColorMode";
 
 const { selectedTheme, selectTheme } = useColorMode();
+console.log(selectedTheme.value);
 </script>
 
 <style>

@@ -1,16 +1,16 @@
 <template>
   <div class="selectionBallWrapper">
+    <Pokeball @mouseenter="showPokemon(true)" @click="handleSelection" />
     <Transition>
       <div v-if="anything" class="selectorWrapper">
+        <div class="arrow-down"></div>
         <div class="selectorContent">
           <img v-if="props.pokemon === 1" src="../assets/charizard.png" />
           <img v-if="props.pokemon === 2" src="../assets/bastoise.png" />
           <img v-if="props.pokemon === 3" src="../assets/venosaur.png" />
         </div>
-        <div class="arrow-down"></div>
       </div>
     </Transition>
-    <Pokeball @mouseenter="showPokemon(true)" @click="handleSelection" />
   </div>
 </template>
 
@@ -68,9 +68,10 @@ function handleSelection() {
 }
 .selectionBallWrapper {
   display: flex;
-  width: 300px;
-  flex-direction: column;
+  height: 202px;
   align-items: center;
+  justify-content: space-around;
+  margin: 30px;
 }
 .ballsWrapper {
   display: flex;
@@ -78,12 +79,11 @@ function handleSelection() {
 }
 .selectorWrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 .selectorContent {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   border-radius: 20px;
   background: v-bind(rgb);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -103,10 +103,8 @@ function handleSelection() {
 .arrow-down {
   width: 0;
   height: 0;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid v-bind(rgb);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid v-bind(rgb);
 }
 </style>

@@ -14,7 +14,7 @@ export function useColors() {
       case "red":
         colors.selectedColor = "red";
         colors.header = "#df2935";
-        colors.homeGradient = "linear-gradient(to right, #eb3349 , #f45c43)";
+        colors.homeGradient = "linear-gradient(to right, #E4572E , #f45c43)";
         break;
       case "blue":
         colors.selectedColor = "blue";

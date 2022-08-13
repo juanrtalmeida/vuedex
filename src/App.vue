@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from "@vue/reactivity";
-import Header from "./components/Header.vue";
+import Header from "./components/Header/Header.vue";
 import { useColorMode } from "./hooks/useColorMode";
 const { backgroundColors } = useColorMode();
 </script>

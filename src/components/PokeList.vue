@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { onMounted, Ref, ref } from "vue";
 import { callApi } from "../hooks/baseApi";
-import PokeCard from "./PokeCard.vue";
+import { Spinner, PokeCard } from "./";
+
 type pokemon = {
   name: string;
   url: string;
@@ -15,10 +16,28 @@ async function getPokes() {
   pokemons.value = results;
 }
 
-onMounted(() => getPokes());
+onMounted(() => {
+  getPokes();
+});
 </script>
 
-<template></template>
+<template>
+  <div class="pokemonsContainer">
+    <div v-for="pokemon in pokemons" :key="pokemon.name">
+      <Suspense>
+        <template #default>
+          <PokeCard :pokemon="pokemon.name" />
+        </template>
+        <template #fallback>
+          <Spinner />
+        </template>
+      </Suspense>
+    </div>
+  </div>
+
+  <button @click="getPokes">Check for more pokemons</button>
+  <Spinner />
+</template>
 
 <style>
 .read-the-docs {
@@ -28,5 +47,12 @@ onMounted(() => getPokes());
 svg {
   width: 100%;
   height: 100%;
+}
+
+.pokemonsContainer {
+  display: grid;
+  place-content: space-around;
+  row-gap: 70px;
+  grid-template-columns: repeat(5, 250px);
 }
 </style>

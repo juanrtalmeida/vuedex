@@ -62,6 +62,7 @@ onMounted(() => {
 .container {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   flex-grow: 1;
@@ -70,9 +71,6 @@ onMounted(() => {
 h1,
 p {
   color: v-bind(header);
-}
-.textWrapper {
-  padding-left: 150px;
 }
 .textWrapper h1 {
   font-family: "Poppins";
@@ -84,16 +82,19 @@ p {
   font-weight: 300;
 }
 .image {
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: v-bind(homeGradient);
-  box-shadow: -27px 27px 53px #9e9e9e, 27px -27px 53px #ffffff;
   width: 40%;
-  height: 400px;
-  border-radius: 50px 0 0 50px;
+  height: 300px;
+  border-radius: 50px 0 50px 0px;
 }
 
 .image img {
-  height: 140%;
+  bottom: 20px;
+  position: absolute;
+  width: 300px;
 }
 </style>
