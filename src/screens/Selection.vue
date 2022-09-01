@@ -19,9 +19,9 @@
 </template>
 
 <script setup lang="ts">
-import { useColorMode } from "../hooks/useColorMode";
-import { SelectionPokeball } from "../components";
-const { textColors } = useColorMode();
+import { useColorMode } from '../hooks/useColorMode'
+import { SelectionPokeball } from '../components'
+const { textColors } = useColorMode()
 </script>
 
 <style scoped>
@@ -66,6 +66,7 @@ h1 {
 h1 span {
   background: -webkit-linear-gradient(rgb(118, 204, 101), rgb(98, 250, 179));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -75,7 +76,7 @@ p {
 h1,
 p {
   text-align: right;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   color: v-bind(textColors);
 }
 </style>

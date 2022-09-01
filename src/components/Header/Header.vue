@@ -38,14 +38,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "@vue/reactivity";
-import { useRoute, useRouter } from "vue-router";
-import { MenuIcon, HeaderItem, ModeToggle } from "..";
-const active = ref(false);
-const router = useRouter();
+import { ref } from '@vue/reactivity'
+import { useRouter } from 'vue-router'
+import { MenuIcon, HeaderItem, ModeToggle } from '..'
+const active = ref(false)
+const router = useRouter()
 
 function activeMenu() {
-  active.value = !active.value;
+  active.value = !active.value
 }
 </script>
 
@@ -71,7 +71,7 @@ function activeMenu() {
 }
 
 * {
-  font-family: "Poppins";
+  font-family: 'Poppins';
 }
 ul {
   padding: 0;

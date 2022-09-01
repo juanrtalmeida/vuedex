@@ -12,10 +12,9 @@
 </template>
 
 <script setup>
-import { useColorMode } from "../hooks/useColorMode";
+import { useColorMode } from '../hooks/useColorMode'
 
-const { selectedTheme, selectTheme } = useColorMode();
-console.log(selectedTheme.value);
+const { selectedTheme, selectTheme } = useColorMode()
 </script>
 
 <style>
@@ -57,7 +56,7 @@ console.log(selectedTheme.value);
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: var(--size-of-icon, 1.4em);
   width: var(--size-of-icon, 1.4em);
   border-radius: 20px;

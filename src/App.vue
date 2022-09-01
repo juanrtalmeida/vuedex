@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import Header from "./components/Header/Header.vue";
-import { useColorMode } from "./hooks/useColorMode";
-const { backgroundColors } = useColorMode();
+import Header from './components/Header/Header.vue'
+import { useColorMode } from './hooks/useColorMode'
+const { backgroundColors } = useColorMode()
 </script>
 
 <template>
   <div class="diver background">
     <Header />
-    <router-view />
+    <RouterView />
   </div>
 </template>
 <style scoped>

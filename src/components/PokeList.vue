@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { onMounted, Ref, ref } from "vue";
-import { callApi } from "../hooks/baseApi";
-import { Spinner, PokeCard } from "./";
+import { onMounted, Ref, ref } from 'vue'
+import { callApi } from '../hooks/baseApi'
+import { Spinner, PokeCard } from './'
 
 type pokemon = {
-  name: string;
-  url: string;
-};
+  name: string
+  url: string
+}
 
-const pokemons: Ref<pokemon[]> = ref([]);
-const count = ref(1);
+const pokemons: Ref<pokemon[]> = ref([])
+const count = ref(1)
 
 async function getPokes() {
-  const { results } = await callApi(`pokemon?limit=${count.value++ * 20}`);
-  pokemons.value = results;
+  const { results } = await callApi(`pokemon?limit=${count.value++ * 20}`)
+  pokemons.value = results
 }
 
 onMounted(() => {
-  getPokes();
-});
+  getPokes()
+})
 </script>
 
 <template>
@@ -34,14 +34,25 @@ onMounted(() => {
       </Suspense>
     </div>
   </div>
-
-  <button @click="getPokes">Check for more pokemons</button>
-  <Spinner />
+  <button class="button" @click="getPokes">Check for more pokemons</button>
 </template>
 
-<style>
+<style scoped>
 .read-the-docs {
   color: #888;
+}
+
+.button {
+  background: none;
+  border: green 2px solid;
+  color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  max-width: 200px;
+  font-size: 16px;
+  border-radius: 10px;
+  margin: 30px auto;
+  cursor: pointer;
 }
 
 svg {
